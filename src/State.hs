@@ -1,20 +1,18 @@
 import Control.Monad.State
 
 type GameState = Int
--- type GameValue = (Bool, Int)
--- initialState = (False,0)
 initialState = 100
 
 stateExample :: IO ()
 stateExample = do
-    print $ evalState (setMemory 1) initialState
+    print $ evalState (play [1,2,0,5]) initialState
 
 
-setMemory :: Int -> State Int GameState
-setMemory input = do
-    value <- get
-    return (value + input)
-
-
--- getMemory :: State Int ()
--- getMemory = get
+play :: [Int] -> State Int GameState
+play [] = do
+   stateValue <- get
+   return stateValue
+play (head:tail) = do
+    stateValue <- get
+    put (stateValue + head)
+    play tail
