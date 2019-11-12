@@ -17,8 +17,9 @@ executable getting-started-with-haskell
   hs-source-dirs:      src
   main-is:             Main.hs
   default-language:    Haskell2010
-  build-depends:       base >= 4.7 && < 5, 
-                       mtl >= 2.2.2
+  build-depends:       base >= 4.7 && < 5 
+                       , mtl >= 2.2.2
+                       , transformers
   -- ghc-options:         -fwarn-incomplete-patterns
 
 -- library
